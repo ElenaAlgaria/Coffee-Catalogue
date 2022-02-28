@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="E.Algaria & M.Rudig">
+    <meta name="description" content="Coffee Catalogue - project for the module webeC at FHNW">
+
+    <title>{% block title %}Caffe Catalogue{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ href('/css/styles.css') }}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+          rel="stylesheet">
+
+    <script src="{{ href('/js/caffeecatalogue.js') }}" defer></script>
+</head>
+<body>
+    {#    EXTERNAL: Copied and adapted from Booklist#}
+    <header class="header">
+        <div class="header__container container">
+            <a href="{{ href('/') }}">
+                <span class="header__title">Coffee Catalogue</span>
+            </a>
+            <form action="/" method="get" class="header__search">
+                {# @pebvariable name="search" type="java.lang.String" #}
+                <input class="search__input" type="text" name="search" value="{{ search }}"
+                       placeholder="Search for the best beans"/>
+                <input class="default__btn" type="submit" value="Search"/>
+            </form>
+            <nav>
+                <ul>
+                    <li><a class="active" href="{{ href('/') }}">Home</a></li>
+                    <li><a href="{{ href('/bean/roaster') }}">Roasters</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <div class="footer__container container">
+            <span class="footer__copyright">&copy; FHNW &vert; Coffee Catalogue &vert; Elena Algaria, Milena Rudig</span>
+            <nav>
+                <ul>
+                    <li><a href="{{ href('/about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

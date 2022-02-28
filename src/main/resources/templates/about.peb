@@ -1,0 +1,63 @@
+{% extends "layout/default" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="main__header">
+    <h1 class="header__title">About</h1>
+</div>
+<section class="about__section">
+    <h2>Coffee - the golden brew which is more than just pushing a button</h2>
+    <p class="description__txt">Coffee is enjoyed by millions of people worldwide and is an integral part of
+        everyday life.
+        The majority thinks no further about it than pushing a button or ordering a cup.
+        But there is much more to it; beans are chosen from different locations all over the world,
+        carefully roasted by Roasters. For each bag of beans, there are specific roasting types like espresso,
+        filter or cappuccino.
+    </p>
+
+    <h2>Our Project</h2>
+    <p class="description__txt"> Our project is about creating a coffee beans catalogue to find new coffee beans
+        along with your preferences
+        and
+        the roaster where you can buy them. To collect beans that aren't yet in the catalogue there is an add
+        function.
+        So you can scroll through our catalogue and mark them with a click when you really like them. If you want
+        to have further information you can click on the bean and a detailed view appears. There you can edit the
+        information about it or delete it. If you can't find the bean that you like you can add them by clicking
+        on the add button and filling out the form. With the search function, you can search the name of the beans,
+        roaster,
+        roasting type or if you liked them (Note that at the moment that works only with true or false).
+        Our three favorite roasters are on the roaster page. If you want to have a look at them you can just click
+        on the corresponding image.
+    </p>
+
+    <h2>How to add/edit beans</h2>
+    <p class="description__txt">Click on the add or edit button. Then the page with the form will open. You have to
+        add a name, a URL, a
+        roaster
+        and roastings. The description is not mandatory. If you click on save without filling everything out, there
+        will
+        appear messages what you must enter and a default URL is inserted. To choose multiple roastings just click
+        on one
+        hold ctrl and click on another or ctrl + shift to select multiple ones below the other. Note that the URL
+        has to start with http:// or https:// and it has to be a URL of an image. Otherwise the URL will be replaced
+        by a
+        default image URL. If the URL leads to an existing image but contains unknown special characters to the
+        regex
+        (like % or +) it will also be replaced by the default image URL. On the other hand, the regex recognises the
+        URL
+        as a valid URL but it does not lead to an image, the alternative text (name of the bean) will be
+        displayed.</p>
+
+    <h2>Future features</h2>
+    <p class="description__txt">The next feature that would be implemented is that you can add roasters. There would be an add button on the
+        roaster page and the form would look similar to the bean add form. With a name, description, image and URL
+        input. In a further step it would be nice to be able to enter the add form directly from the beans form.
+        <br>
+        Also, the selection for the roastings will be turned into checkboxes.
+    </p>
+</section>
+
+{% endblock %}
+

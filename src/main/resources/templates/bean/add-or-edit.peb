@@ -1,0 +1,24 @@
+{# @pebvariable name="beanBag" type="ch.fhnw.webec.coffeecatalogue.model.Bean" #}
+
+{% extends "layout/default" %}
+
+{% import "form/input" %}
+{% import "form/select" %}
+{% import "form/submit" %}
+
+{% block content %}
+    <form  class="form"  method="post" id="bean">
+        {{ input("bean", "Name", "name", "text", "Name of Beans", beanBag.name, _context) }}
+        {{ input("bean", "URL", "imagePath", "text", "URL of the image", beanBag.imagePath, _context) }}
+        {{ input("bean", "Description", "description","textarea", "Description of the bean", beanBag.description, _context) }}
+        {{ select("bean", "Roaster", "roaster", roasters, [beanBag.roaster], false, _context) }}
+        {{ select("bean", "Roasting", "roastings", roastings, beanBag.roastings, true, _context) }}
+        <div class="beans-detail__buttons">
+            {{ submit("Save") }}
+            <button class="default__btn" formmethod="get" formaction="{% if beanBag.id != null %}
+                {{ href('/bean/' + beanBag.id ) }}{% else %}{{ href('/') }}{% endif %}">
+                    Cancel
+            </button>
+        </div>
+    </form>
+{% endblock %}

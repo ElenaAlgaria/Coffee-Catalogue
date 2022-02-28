@@ -1,0 +1,10 @@
+{% extends "layout/default" %}
+
+{% block title %} Oooops - it seems it is time for a coffee!{% endblock %}
+
+{% block content %}
+    <div>
+        <img src="{{ '/images/stockImages/error_splash.png' }}" alt="{{ 'Unexpected error!' }}" class="error__img">
+    </div>
+{% endblock %}
+

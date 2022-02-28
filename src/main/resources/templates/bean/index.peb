@@ -1,0 +1,36 @@
+{# @pebvariable name="beansList" type="java.util.List<ch.fhnw.webec.coffeecatalogue.model.Bean>" #}
+{# @pebvariable name="search" type="java.lang.String" #}
+
+{% extends "layout/default" %}
+
+{% import "form/toggle" %}
+
+{% block content %}
+    <div class="main__header">
+        <h1 class="header__title">Discover new beans in our bean</h1>
+        <p class="description__txt">
+            Do you love coffee as much as we do? Then discover our favorite varieties for 2021
+            here. <br> Personalize your catalog! You can add or edit new beans.
+        </p>
+        <a class="default__btn" href="{{ href('/bean/add') }}">
+            <span class="btn__text">Add new beans</span>
+        </a>
+    </div>
+    <div class="main__container container">
+        {% for beans in beansList %}
+            <section class="coffee__item">
+                <a href="{{ href('/bean/' + beans.id) }}" class="coffee__imageContainer">
+                    <img src="{{ href(beans.imagePath) }}" alt="{{ beans.name }}">
+                </a>
+                <div class="card__wrapper">
+                    <h3 class="index__heading">
+                        <a href="{{ href('/bean/' + beans.id) }}">{{ beans.name }}</a>
+                    </h3>
+                    <form class="index__favorite" action="{{  href('/bean/' + beans.id + '/fav/index') }}" method="post">
+                            {{ toggle(beans.favorite,"card__icon material-icons favorite_border","card__icon material-icons favorite","favorite_border", "favorite") }}
+                    </form>
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock %}

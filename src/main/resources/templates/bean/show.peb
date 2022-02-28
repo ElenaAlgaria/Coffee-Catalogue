@@ -1,0 +1,36 @@
+{# @pebvariable name="beanDetail" type="ch.fhnw.webec.coffeecatalogue.model.Bean" #}
+
+{% import "bean/macro/roastinglist" %}
+{% import "form/toggle" %}
+
+{% extends "layout/default" %}
+
+{% block title %}{{beanDetail.name}}{% endblock %}
+
+{% block content %}
+    <section class="beans__detail">
+        <div>
+            <img class="bean__image" src="{{ href(beanDetail.imagePath) }}" width="420" height="420" alt="{{ beanDetail.name }}">
+        </div>
+        <div>
+            <div class="beans-detail__favButton">
+                <h1 class="beans-detail__title">{{ beanDetail.name }}</h1>
+                <form class="show__favorite" action="{{  href('/bean/' + beanDetail.id + '/fav/show') }}" method="post">
+                        {{ toggle(beanDetail.favorite,"card__icon material-icons favorite_border","card__icon material-icons favorite","favorite_border", "favorite") }}
+                </form>
+            </div>
+            <strong> {{ roastinglist(beanDetail.roastings) }}</strong>
+            <strong class="roaster__name">{{ beanDetail.roaster.name }}</strong>
+            <p class="description__txt">{{ beanDetail.description }}</p>
+            <div class="beans-detail__buttons">
+                <form action="{{ href('/bean/' + beanDetail.id + '/edit') }}" method="get">
+                    <input type="submit" value="Edit" class="default__btn">
+                </form>
+                <form action="{{ href('/bean/' + beanDetail.id + '/delete') }}" method="post">
+                    <input type="submit" value="Delete" class="default__btn">
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

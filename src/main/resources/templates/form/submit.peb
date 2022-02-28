@@ -1,0 +1,9 @@
+{# @pebvariable name="value" type="java.lang.String" #}
+
+{#    EXTERNAL: Copied from Booklist#}
+
+{% extends "layout/default" %}
+
+{% macro submit(value)  %}
+    <input type="submit" value="{{ value }}" class="default__btn"/>
+{% endmacro %}

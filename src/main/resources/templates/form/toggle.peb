@@ -1,0 +1,34 @@
+{# @pebvariable name="activated" type="java.lang.Boolean" #}
+{# @pebvariable name="offIconCssClass" type="java.lang.String" #}
+{# @pebvariable name="onIconCssClass" type="java.lang.String" #}
+{# @pebvariable name="onIcon" type="java.lang.String" #}
+{# @pebvariable name="offIcon" type="java.lang.String" #}
+
+{% extends "layout/default" %}
+
+{% macro toggle(activated,offIconCssClass,onIconCssClass, offIcon, onIcon) %}
+    {% if activated %}
+        <button class="{{ offIconCssClass +' hidden' }}" onclick="toggleFavorite(this)" >
+                {{ offIcon }}
+        </button>
+        <button class="{{ onIconCssClass }}" onclick="toggleFavorite(this)" >
+                {{ onIcon }}
+        </button>
+    {% else %}
+        <button class="{{ offIconCssClass }}" onclick="toggleFavorite(this)" >
+                {{ offIcon }}
+        </button>
+        <button class="{{ onIconCssClass +' hidden'}}" onclick="toggleFavorite(this)" >
+                {{ onIcon }}
+        </button>
+    {% endif %}
+    <script>
+        function toggleFavorite(btn) {
+            let on = btn.parentElement.getElementsByClassName({{ onIcon }})[0];
+            let off = btn.parentElement.getElementsByClassName({{ offIcon }})[0];
+
+            on.classList.toggle("hidden");
+            off.classList.toggle("hidden");
+        }
+    </script>
+{% endmacro %}

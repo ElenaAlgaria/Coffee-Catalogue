@@ -1,0 +1,11 @@
+{# @pebvariable name="roastings" type="java.util.List<ch.fhnw.webec.coffeecatalogue.model.Roasting>" #}
+
+{% macro roastinglist(roastings) %}
+<div class="roasting-list">
+    {% for roasting in roastings %}
+        <strong>-</strong>
+        <span class="roasting-list__item">{{ roasting.name | lower }}</span>
+    {% endfor %}
+    <strong>-</strong>
+</div>
+{% endmacro %}

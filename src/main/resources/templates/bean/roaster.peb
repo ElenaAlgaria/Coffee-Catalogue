@@ -1,0 +1,24 @@
+{# @pebvariable name="roasterList" type="java.util.List<ch.fhnw.webec.coffeecatalogue.model.Roaster>" #}
+
+{% extends "layout/default" %}
+
+{% block content %}
+    <div class="main__header">
+        <h1 class="header__title">Our favorite roasters</h1>
+    </div>
+    <div>
+        {% for roasters in roasterList %}
+            {% if not( roasters.roasterUrl equals 'https://www.noroaster.ch') %}
+                <div class="all__roasters">
+                    <a href="{{ roasters.roasterUrl}}">
+                        <img class="roaster__image" src="{{ href(roasters.image_path) }}" width="500" height="400" alt="roasterImage">
+                    </a>
+                    <section>
+                        <h2>{{ roasters.name }}</h2>
+                        <p class="description__txt">{{roasters.description}}</p>
+                    </section>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

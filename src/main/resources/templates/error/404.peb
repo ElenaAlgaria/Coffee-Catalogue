@@ -1,0 +1,10 @@
+{% extends "layout/default" %}
+
+{% block title %}Error 404{% endblock %}
+
+{% block content %}
+     <div>
+        <img src="{{ '/images/stockImages/error_404.png' }}" alt="{{ 'Error 404 - page not found' }}" class="error__img">
+    </div>
+{% endblock %}
+
